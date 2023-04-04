@@ -4,6 +4,10 @@ import plotly.express as px
 
 df = pd.read_csv('vehicles_us.csv')
 
+model_options = df['model'].unique().tolist()
+model = st.selectbox('Car Model', model_options, 0)
+df = df[df['model']== model]
+
 st.header('Distribution of Price in Cars')
 fig = px.histogram(df, x = "price", title = "Distribution of Price in Cars")
 st.write(fig)
@@ -22,6 +26,3 @@ st.write(fig)
 
 check = st.checkbox('This app works!')
 st.write('State of the checkbox:', check)
-
-model_options = ['bmw x5', 'chrysler 200', 'honda pilot', 'honda accord', 'jeep cherokee', 'chevrolet tahoe', 'jeep wrangler', 'chevrolet equinox', 'honda cr-v', 'ford focus', 'chevrolet colorado', 'chevrolet cruze', 'nissan frontier crew cab sv', 'nissan versa', 'fordf250 super duty', 'subaru forester', 'ford edge', 'nissan sentra', 'ford expedition', 'acura tl', 'gmc sierra', 'gmc sierra 2500hd', 'honda odyssey', 'toyota corolla', 'toyota prius', 'toyota tundra', 'nissan frontier', 'nissan frontier', 'ford f-250 super duty', 'ford focus se', 'ford f350', 'nissan murano']
-car_models = st.selectbox('Car model', options = model_options)
