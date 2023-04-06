@@ -7,7 +7,7 @@ st.set_page_config(
     page_icon="✅",
     layout='wide',
 )
-@st.cache_data
+@st.cache
 def get_data() -> pd.DataFrame:
     return pd.read_csv('vehicles_us.csv')
 
