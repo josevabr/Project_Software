@@ -22,13 +22,12 @@ fig = px.scatter(df, x = 'model_year', y = 'price', log_y=[1, 1000], title = 'Di
 st.write(fig)
 
 st.title('Distribution of Price in Car Model and Car Model Years')
-col1, col2, col3 = st.columns(3)
-model_selection = col1.multiselect('Select Model', df['model'].unique().tolist())
+model_selection = st.multiselect('Select Model', pd.unique(df['model']).tolist())
 df = df[df['model']==model_selection]
-price_selection = col2.multiselect('Select Price', df['price'].unique().tolist())
-df = df[df['price']==price_selection]
-year_selection = col3.multiselect('Select Model Year', df['model_year'].unique().tolist())
-df = df[df['model_year']==year_selection]
+price_filter = st.selectbox('Select Price', pd.unique(df['price']))
+df = df[df['price']== price_filter]
+year_filter = st.selectbox('Select Model Year', pd.unique(df['model_year']))
+df = df[df['model_year']== year_filter]
 
 fig_col1, fig_col2 = st.columns(2)
 with fig_col1:
