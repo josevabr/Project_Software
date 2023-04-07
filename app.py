@@ -23,7 +23,7 @@ st.write(fig)
 
 st.title('Distribution of Price in Car Model and Car Model Years')
 model_selection = st.multiselect('Select Model', pd.unique(df['model']))
-df = df[df['model']==model_selection]
+
 price_filter = st.selectbox('Select Price', pd.unique(df['price']))
 df = df[df['price']== price_filter]
 year_filter = st.selectbox('Select Model Year', pd.unique(df['model_year']))
