@@ -31,6 +31,10 @@ year_filter = st.selectbox('Select Model Year', pd.unique(df['model_year']))
 df = df[df['model_year']== year_filter]
 model_filter_2 = st.selectbox('Select Model 2', pd.unique(df['model']))
 df = df[df['model']== model_filter_2]
+price_filter_2 = st.selectbox('Select Price', pd.unique(df['price']))
+df = df[df['price']== price_filter_2]
+year_filter_2 = st.selectbox('Select Model Year', pd.unique(df['model_year']))
+df = df[df['model_year']== year_filter_2]
 
 fig_col1, fig_col2 = st.columns(2)
 with fig_col1:
