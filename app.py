@@ -22,7 +22,7 @@ fig = px.scatter(df, x = 'model_year', y = 'price', log_y=[1, 1000], title = 'Di
 st.write(fig)
 
 st.title('Distribution of Price in Car Model and Car Model Years')
-model_selection = st.multiselect('Select Model', pd.unique(df['model']).tolist())
+model_selection = st.multiselect('Select Model', pd.unique(df['model']))
 df = df[df['model']==model_selection]
 price_filter = st.selectbox('Select Price', pd.unique(df['price']))
 df = df[df['price']== price_filter]
